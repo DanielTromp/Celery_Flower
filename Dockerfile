@@ -11,7 +11,6 @@ RUN echo $TZ > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
 
-
 # PYTHONUNBUFFERED: Force stdin, stdout and stderr to be totally unbuffered. (equivalent to `python -u`)
 # PYTHONHASHSEED: Enable hash randomization (equivalent to `python -R`)
 # PYTHONDONTWRITEBYTECODE: Do not write byte files to disk, since we maintain it as readonly. (equivalent to `python -B`)
@@ -21,15 +20,6 @@ ENV PYTHONUNBUFFERED=1 PYTHONHASHSEED=random PYTHONDONTWRITEBYTECODE=1
 EXPOSE 5555
 
 # Run as a non-root user by default, run as user with least privileges.
-#USER nobody
+USER nobody
 
 CMD ["flower"]
-
-# 
-# docker build -t flower .
-# docker run -p 5555:5555 flower
-# docker login
-# docker tag flower danieltromp/flower:latest
-# docker push danieltromp/flower:latest
-# docker pull danieltromp/flower
-# docker run -p 5555:5555 danieltromp/flower
