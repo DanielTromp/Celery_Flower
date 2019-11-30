@@ -1,5 +1,7 @@
 <H1>Flower: Real-time Celery web-monitor</H1>
 
+docker run -p 5555:5555 danieltromp/flower
+
 This Dockerfile is based on: https://github.com/mher/flower <br>
 Added in this version is the right timezone for me ('Europe/Amsterdam').<br>
 (the right timezone is important to Celery and a known issue with some Docker images)
