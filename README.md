@@ -1,6 +1,7 @@
 <H1>Flower: Real-time Celery web-monitor</H1>
 
-docker run -p 5555:5555 danieltromp/flower
+docker run -p 5555:5555 -e CELERY_BROKER_URL=redis://localhost:6379 danieltromp/flower<br>
+(make sure you have a redis running localy or change 'localhost' in the correct IP/Hostname)
 
 This Dockerfile is based on: https://hub.docker.com/r/mher/flower <br>
 Added in this version is the right timezone for me ('Europe/Amsterdam').<br>
